@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterUI", "BetterUI\BetterUI.csproj", "{F09B8E3C-E099-46E0-B8A7-B36A4A6626A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F09B8E3C-E099-46E0-B8A7-B36A4A6626A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09B8E3C-E099-46E0-B8A7-B36A4A6626A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F047ED18-9C11-4015-983F-8E4DB94B568F}
+	EndGlobalSection
+EndGlobal
