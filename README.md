@@ -1,4 +1,4 @@
-![BetterUI Logo]()
+![BetterUI Logo](https://github.com/matias-kovero/BetterUI/blob/main/logo.png)
 # BetterUI
 A HarmonyX Mod aimed at improving the user interface elements of [Valheim](https://www.valheimgame.com/).
 
