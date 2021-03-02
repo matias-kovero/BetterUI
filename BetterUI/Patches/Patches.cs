@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -48,7 +49,7 @@ namespace BetterUI.Patches
       XP_Bar.SetValue(XP.GetLevelPercentage());
     }
   }
-  
+
   [HarmonyPatch]
   public static class Items
   {
@@ -138,8 +139,16 @@ namespace BetterUI.Patches
       __result = Localization.instance.Localize(text + "\n[<color=yellow><b>$KEY_Use</b></color>] $inventory_pickup");
       return false;
     }
-  }
 
+    [HarmonyPrefix]
+    [HarmonyPatch(typeof(ItemDrop.ItemData), "GetTooltip", new Type[] { typeof(ItemDrop.ItemData), typeof(int), typeof(bool) })]
+    public static bool PatchTooltip(ref string __result, ItemDrop.ItemData item, int qualityLevel, bool crafting)
+    {
+      return true;
+      __result = CustomTooltip.ChangeTooltip(item, qualityLevel, crafting);
+      return false; // https://harmony.pardeike.net/articles/patching-prefix.html#changing-the-result-and-skipping-the-original
+    }
+  }
   [HarmonyPatch]
   public static class Skill
   {
@@ -183,7 +192,10 @@ namespace BetterUI.Patches
     [HarmonyPatch(typeof(FejdStartup), "UpdateCharacterList")]
     private static void ShowCharacterStats(ref FejdStartup __instance)
     {
-      CharacterStats.Show(__instance);
+      if (Main.showCustomCharInfo.Value)
+      {
+        CharacterStats.Show(__instance);
+      }
     }
   }
 

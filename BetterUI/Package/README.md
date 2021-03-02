@@ -77,9 +77,13 @@ useCustomSkillUI = true
 ## Select text size on skills UI
 # Setting type: Int32
 # Default value: 14
-enemyHudTextSize = 14
+skillUITextSize = 14
 ```
 ## Changelog
+#### 1.4.2
+- Added skillUITextSize to config (Game still scales them)
+- Padding fix on modded items quality stars
+- Ability to toggle if chracter stats are visible 
 #### 1.4.1
 - Hotfix on config values
 #### 1.4.0

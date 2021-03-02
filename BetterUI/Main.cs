@@ -16,7 +16,7 @@ namespace BetterUI
       MODNAME = "BetterUI",
       AUTHOR = "MK",
       GUID = AUTHOR + "_" + MODNAME,
-      VERSION = "1.4.1";
+      VERSION = "1.4.2";
 
     internal readonly ManualLogSource log;
     internal readonly Harmony harmony;
@@ -32,6 +32,7 @@ namespace BetterUI
     public static ConfigEntry<float> maxShowDistance;
     public static ConfigEntry<int> enemyHudTextSize;
     public static ConfigEntry<int> skillUITextSize;
+    public static ConfigEntry<bool> showCustomCharInfo;
     //public static ConfigEntry<string> durabilityColorMode;
 
     #endregion
@@ -49,7 +50,8 @@ namespace BetterUI
       showCharacterXP = Config.Bind("UI", "showCharacterXP", true, "Show Character XP Bar.");
       showXPNotifications = Config.Bind("UI", "ShowXPNotifications", true, "Show when you gain xp from actions.");
       customSkillUI = Config.Bind("UI", "useCustomSkillUI", true, "Toggle the use of custom skills UI");
-      skillUITextSize = Config.Bind("UI", "enemyHudTextSize", 14, "Select text size on skills UI");
+      skillUITextSize = Config.Bind("UI", "skillUITextSize", 14, "Select text size on skills UI");
+      showCustomCharInfo = Config.Bind("UI", "showCustomCharInfo", true, "Toggle the visibility of custom info on character selection");
       showDurabilityColor = Config.Bind("Item", "ShowDurabilityColor", true, "Show colored durability bars");
       iconScaleSize = Config.Bind("Item", "ScaleSize", 0.75f, "Scale item icon by this factor. Ex. 0.75 makes them 75% of original size");
       customEnemyHud = Config.Bind("HUD", "useCustomEnemyHud", true, "Toggle the use of custom enemy hud");
