@@ -53,6 +53,7 @@ namespace BetterUI.Patches
   [HarmonyPatch]
   public static class Items
   {
+
     [HarmonyPostfix]
     [HarmonyPatch(typeof(InventoryGrid), "UpdateGui")]
     private static void PatchInventory(ref InventoryGrid __instance, ref Player player, ItemDrop.ItemData dragItem)
@@ -144,11 +145,27 @@ namespace BetterUI.Patches
     [HarmonyPatch(typeof(ItemDrop.ItemData), "GetTooltip", new Type[] { typeof(ItemDrop.ItemData), typeof(int), typeof(bool) })]
     public static bool PatchTooltip(ref string __result, ItemDrop.ItemData item, int qualityLevel, bool crafting)
     {
-      return true;
-      __result = CustomTooltip.ChangeTooltip(item, qualityLevel, crafting);
+      if (!Main.showCustomTooltips.Value) return true;
+      __result = BetterTooltip.Create(item, qualityLevel, crafting);
       return false; // https://harmony.pardeike.net/articles/patching-prefix.html#changing-the-result-and-skipping-the-original
     }
+
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(InventoryGui), "UpdateCharacterStats")]
+    public static void PatchArmor(ref InventoryGui __instance, ref Player player)
+    {
+      if (!Main.showCombinedItemStats.Value) return;
+      if (InventoryArmorTooltip.tooltip == null)
+      {
+        InventoryArmorTooltip.Awake(__instance);
+      }
+      float bodyArmor = player.GetBodyArmor();
+      InventoryArmorTooltip.m_armor.text = bodyArmor.ToString();
+
+      InventoryArmorTooltip.Update(player);
+    }
   }
+  
   [HarmonyPatch]
   public static class Skill
   {

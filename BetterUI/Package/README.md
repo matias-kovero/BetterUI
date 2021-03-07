@@ -20,14 +20,14 @@ If you are installing this manually, do the following _(You will need Bepinex in
 3. Run the game, it will generate automatically an configuration file into `<GameDirectory>\Bepinex\config`
 
 ## Preview
+![ItemUpgrade](https://i.nyah.moe/RwYtO.png)![ItemUpgrade2](https://i.nyah.moe/RwE8M.png)
+![ItemTooltip](https://i.nyah.moe/RwGT3.png)![AllStats](https://i.nyah.moe/RwVMz.png)
 ![EnemyHUD](https://i.nyah.moe/R6PHf.png)  
-![SkillGUI](https://i.nyah.moe/R602s.png)
+![SkillGUI](https://i.nyah.moe/R602s.png)  
+
 
 ## Config
 ```
-## Settings file was created by plugin BetterUI v1.4.0
-## Plugin GUID: MK_BetterUI
-
 [HUD]
 
 ## Toggle the use of custom enemy hud
@@ -43,7 +43,7 @@ enemyHudTextSize = 14
 ## How far you will see enemy HP Bar
 # Setting type: Single
 # Default value: 20
-MaxShowDistance = 20
+MaxShowDistance = 40
 
 [Item]
 
@@ -52,10 +52,15 @@ MaxShowDistance = 20
 # Default value: true
 ShowDurabilityColor = true
 
+## Show customized tooltips.
+# Setting type: Boolean
+# Default value: true
+showCustomTooltips = false
+
 ## Scale item icon by this factor. Ex. 0.75 makes them 75% of original size
 # Setting type: Single
 # Default value: 0.75
-ScaleSize = 0.75
+ScaleSize = 0.7
 
 [UI]
 
@@ -77,9 +82,23 @@ useCustomSkillUI = true
 ## Select text size on skills UI
 # Setting type: Int32
 # Default value: 14
-skillUITextSize = 14
+skillUITextSize = 24
+
+## Toggle the visibility of custom info on character selection
+# Setting type: Boolean
+# Default value: true
+showCustomCharInfo = true
+
+## Show all item stats when mouse is hovered over armour amount.
+# Setting type: Boolean
+# Default value: true
+showCombinedItemStats = false
 ```
 ## Changelog
+#### 1.5.0
+- Added custom tooltips
+- Updated recipe information. Show clearly what stats are improving when upgrading.
+- Show all active item stats by hovering over your armour amount.
 #### 1.4.2
 - Added skillUITextSize to config (Game still scales them)
 - Padding fix on modded items quality stars
