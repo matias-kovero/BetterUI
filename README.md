@@ -25,7 +25,10 @@ I'll add slowly new additions to the mod - and fix bugs that users report.
  - Run the game once, BepInEx console should pop-up. At the background, BepInEx Publicizer will create assemblies  
  under `<ValheimGameDirectory>\valheim_Data\Managed\publicized_assemblies`
  
- You should now successfully build the project 🎉
+ You should now successfully build this project 🎉
  
+ ## Additional info
  To view the actual game code, download [dnSpy](https://github.com/dnSpy/dnSpy/releases/tag/v6.1.8) and open `assembly_valheim.dll` with it.  
- The file is located in `<ValheimGameDirectory>\valheim_Data\Managed\assembly_valheim.dll`
+ The file is located under `<ValheimGameDirectory>\valheim_Data\Managed\`
+ 
+ This mod is created using [HarmonyX](https://github.com/BepInEx/HarmonyX), info about their syntax is found [here](https://harmony.pardeike.net/articles/patching.html).
