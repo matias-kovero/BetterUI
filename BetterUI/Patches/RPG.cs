@@ -17,11 +17,12 @@ namespace BetterUI.Patches
     private static readonly float smoothSpeed = 0.7f;
     private static readonly float maxValue = 1f;
     private static Color barColor = Color.yellow;
+    private static GuiBar _xp_bar = null;
 
     public static GuiBar Awake(Hud __instance)
     {
       Transform hudroot = Utils.FindChild(__instance.gameObject.transform, "hudroot");
-      GuiBar xp_bar = UnityEngine.Object.Instantiate(Hud.instance.m_stealthBar, hudroot);
+      GuiBar xp_bar = UnityEngine.Object.Instantiate(Hud.instance.m_stealthBar, hudroot, true);
       xp_bar.m_barImage = Hud.instance.m_stealthBar.m_bar.GetComponent<Image>();
       xp_bar.m_smoothFill = smoothFill;
       xp_bar.m_smoothDrain = smoothDrain;
@@ -37,16 +38,27 @@ namespace BetterUI.Patches
 
       RectTransform xpRect = (xp_bar.transform as RectTransform);
       xpRect.anchorMin = Vector2.zero;
-      xpRect.anchorMax = Vector2.zero;
-      xpRect.anchoredPosition = new Vector2(hudroot.position.x, 0f);
-      xpRect.sizeDelta = new Vector2(hudroot.position.x * 2, xpRect.rect.height);
+      xpRect.anchorMax = new Vector2(1f, 0f);
+      xpRect.anchoredPosition = Vector2.zero;
 
-      xp_bar.m_bar.sizeDelta = new Vector2(hudroot.position.x * 2, xpRect.rect.height);
+      xpRect.offsetMin = Vector2.zero;
+      xpRect.offsetMax = Vector2.zero;
+      xpRect.sizeDelta = new Vector2(0f, 5f);
 
+      xp_bar.m_bar.sizeDelta = new Vector2(xpRect.rect.width, xpRect.rect.height);
       // Render the XP Bar 
       xp_bar.gameObject.SetActive(true);
+      _xp_bar = xp_bar;
 
       return xp_bar;
+    }
+  
+    public static void UpdatePosition()
+    {
+      if (_xp_bar == null) return;
+      RectTransform xpRect = (_xp_bar.transform as RectTransform);
+      if (xpRect == null) return;
+      _xp_bar.m_bar.sizeDelta = xpRect.rect.size;
     }
   }
 

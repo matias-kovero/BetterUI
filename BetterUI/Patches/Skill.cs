@@ -18,7 +18,7 @@ namespace BetterUI.Patches
     {
       float acc = (float)Math.Round(skill.m_accumulator * 100f) / 100f;
       float max = (float)Math.Round(skill.GetNextLevelRequirement() * 100f) / 100f;
-      string str = $"XP for {skill.m_info.m_skill} (+{skill.m_info.m_increseStep * factor})\n[{acc}/{max}] ({skill.GetLevelPercentage() * 100f:0.##}%)";
+      string str = Localization.instance.Localize($"XP for $skill_{skill.m_info.m_skill.ToString().ToLower()} (+{skill.m_info.m_increseStep * factor})\n[{acc}/{max}] ({skill.GetLevelPercentage() * 100f:0.00}%)");
       MessageHud.instance.ShowMessage(MessageHud.MessageType.TopLeft, $"<size={fontSize}>{str}</size>");
     }
   }

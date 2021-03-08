@@ -16,16 +16,18 @@ namespace BetterUI
       MODNAME = "BetterUI",
       AUTHOR = "MK",
       GUID = AUTHOR + "_" + MODNAME,
-      VERSION = "1.5.0";
+      VERSION = "1.5.1";
 
     internal readonly ManualLogSource log;
     internal readonly Harmony harmony;
     internal readonly Assembly assembly;
     public readonly string modFolder;
 
+    public static ConfigEntry<int> colorMode;
     public static ConfigEntry<bool> showXPNotifications;
     public static ConfigEntry<bool> showCharacterXP;
     public static ConfigEntry<bool> showDurabilityColor;
+    public static ConfigEntry<bool> showItemStars;
     public static ConfigEntry<float> iconScaleSize;
     public static ConfigEntry<bool> customEnemyHud;
     public static ConfigEntry<bool> customSkillUI;
@@ -35,6 +37,7 @@ namespace BetterUI
     public static ConfigEntry<bool> showCustomCharInfo;
     public static ConfigEntry<bool> showCustomTooltips;
     public static ConfigEntry<bool> showCombinedItemStats;
+    public static ConfigEntry<int> fermenterTimeLeftStyle;
     //public static ConfigEntry<string> durabilityColorMode;
 
     #endregion
@@ -49,13 +52,16 @@ namespace BetterUI
     }
     public void Awake()
     {
+      colorMode = Config.Bind("UI", "colorMode", 0, "Change colorMode. Options: 0=Normal, 1=Protanopia ");
       showCharacterXP = Config.Bind("UI", "showCharacterXP", true, "Show Character XP Bar.");
       showXPNotifications = Config.Bind("UI", "ShowXPNotifications", true, "Show when you gain xp from actions.");
       customSkillUI = Config.Bind("UI", "useCustomSkillUI", true, "Toggle the use of custom skills UI");
       skillUITextSize = Config.Bind("UI", "skillUITextSize", 14, "Select text size on skills UI");
       showCustomCharInfo = Config.Bind("UI", "showCustomCharInfo", true, "Toggle the visibility of custom info on character selection");
       showCombinedItemStats = Config.Bind("UI", "showCombinedItemStats", true, "Show all item stats when mouse is hovered over armour amount.");
+      fermenterTimeLeftStyle = Config.Bind("UI", "fermenterTimeLeftStyle", 2, "Select how time left is shown. 0 = Default, 1 = Percentage, 2 = min:sec");
       showDurabilityColor = Config.Bind("Item", "ShowDurabilityColor", true, "Show colored durability bars");
+      showItemStars = Config.Bind("Item", "showItemStars", true, "Show item quality as stars");
       showCustomTooltips = Config.Bind("Item", "showCustomTooltips", true, "Show customized tooltips.");
       iconScaleSize = Config.Bind("Item", "ScaleSize", 0.75f, "Scale item icon by this factor. Ex. 0.75 makes them 75% of original size");
       customEnemyHud = Config.Bind("HUD", "useCustomEnemyHud", true, "Toggle the use of custom enemy hud");
@@ -66,9 +72,11 @@ namespace BetterUI
     {
       harmony.PatchAll(assembly);
     }
+    /*
     public void OnDestroy()
     {
       harmony?.UnpatchAll();
     }
+    */
   }
 }

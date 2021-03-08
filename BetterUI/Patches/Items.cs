@@ -18,6 +18,21 @@ namespace BetterUI.Patches
       new Color(0.72941f, 0.34902f, 0.03529f, 1f), // Orange
       new Color(0.72941f, 0.03529f, 0.03529f, 1f)  // Red
     };
+    private static Color[] protanopia = new Color[]
+    {
+      new Color(1f, 1f, 1f, 1f), // Green -> White
+      new Color(0.878f, 1f, 0f, 1f), // Yellow -> Light Yellow
+      new Color(0.192f, 0.859f, 0.573f, 1f), // Orange -> Light Cyan
+      new Color(0.11f, 0.435f, 0.973f, 1f)  // Red -> Blue
+    };
+
+    private static Array[] colorArray = new Array[]
+    {
+      normal,
+      protanopia
+    };
+
+    private static Color[] activeColor = colorArray[Main.colorMode.Value] as Color[];
 
     public static void UpdateColor(InventoryGrid.Element element, float durability)
     {
@@ -29,19 +44,19 @@ namespace BetterUI.Patches
       {
         case float n when (n >= 0.75f):
           // Color green
-          element.m_durability.SetColor(normal[0]);
+          element.m_durability.SetColor(activeColor[0]);
           break;
         case float n when (n >= 0.50f):
           // Color yellow
-          element.m_durability.SetColor(normal[1]);
+          element.m_durability.SetColor(activeColor[1]);
           break;
         case float n when (n >= 0.25f):
           // Color Orange
-          element.m_durability.SetColor(normal[2]);
+          element.m_durability.SetColor(activeColor[2]);
           break;
         case float n when (n >= 0f):
           // Color Red
-          element.m_durability.SetColor(normal[3]);
+          element.m_durability.SetColor(activeColor[3]);
           break;
       }
     }
@@ -56,19 +71,19 @@ namespace BetterUI.Patches
       {
         case float n when (n >= 0.75f):
           // Color green
-          element.m_durability.SetColor(normal[0]);
+          element.m_durability.SetColor(activeColor[0]);
           break;
         case float n when (n >= 0.50f):
           // Color yellow
-          element.m_durability.SetColor(normal[1]);
+          element.m_durability.SetColor(activeColor[1]);
           break;
         case float n when (n >= 0.25f):
           // Color Orange
-          element.m_durability.SetColor(normal[2]);
+          element.m_durability.SetColor(activeColor[2]);
           break;
         case float n when (n >= 0f):
           // Color Red
-          element.m_durability.SetColor(normal[3]);
+          element.m_durability.SetColor(activeColor[3]);
           break;
       }
     }
@@ -102,6 +117,16 @@ namespace BetterUI.Patches
 
       // TODO: Spawned items might brake this, as they could have 99 stars. 
       // Possible fix, after x amount switch to: ★x[amount] = ★x99
+    }
+    public static string HoverText(int quality_lvl)
+    {
+      if ( quality_lvl >= 5) // Fix modded items
+      {
+        return $"{quality_lvl}x\u2605";
+      } else if (quality_lvl > 99999) // For them HC Modders
+      {
+        return $"Modded";
+      } else return Helpers.Repeat("\u2605", quality_lvl);
     }
   }
   

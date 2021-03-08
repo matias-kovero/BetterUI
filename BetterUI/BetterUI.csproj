@@ -327,12 +327,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameClasses\EnemyHud.cs" />
+    <Compile Include="GameClasses\FejdStartup.cs" />
+    <Compile Include="GameClasses\Fermenter.cs" />
+    <Compile Include="GameClasses\HotkeyBar.cs" />
+    <Compile Include="GameClasses\Hud.cs" />
+    <Compile Include="GameClasses\InventoryGrid.cs" />
+    <Compile Include="GameClasses\InventoryGui.cs" />
+    <Compile Include="GameClasses\ItemDrop.cs" />
+    <Compile Include="GameClasses\Skills.cs" />
+    <Compile Include="GameClasses\SkillsDialog.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\EnemyHud.cs" />
     <Compile Include="Patches\Helpers.cs" />
     <Compile Include="Patches\Items.cs" />
     <Compile Include="Patches\Menu.cs" />
-    <Compile Include="Patches\Patches.cs" />
     <Compile Include="Patches\RPG.cs" />
     <Compile Include="Patches\Skill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
