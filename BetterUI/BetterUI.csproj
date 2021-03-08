@@ -338,7 +338,6 @@
     <Compile Include="GameClasses\Skills.cs" />
     <Compile Include="GameClasses\SkillsDialog.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Patches\EnemyHud.cs" />
     <Compile Include="Patches\Helpers.cs" />
     <Compile Include="Patches\Items.cs" />
     <Compile Include="Patches\Menu.cs" />
