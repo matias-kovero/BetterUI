@@ -1,4 +1,4 @@
-![BetterUI Logo](https://github.com/matias-kovero/BetterUI/blob/main/logo.png)
+[<p align="center"><img width="600" src="/logo.png"></p>](/logo.png)
 # BetterUI 
 The main idea behind *BetterUI* is to make the interface of [Valheim](https://www.valheimgame.com/) more pleasant and easier to understand.  
 I'll add slowly new additions to the mod - and fix bugs that users report.
