@@ -32,17 +32,17 @@ namespace BetterUI.GameClasses
               __result = Localization.instance.Localize(__instance.m_name + " ( " + contentName + ", $piece_fermenter_exposed )");
               return false;
             }
-            if (Main.fermenterTimeLeftStyle.Value == 1)
+            if (Main.timeLeftStyleFermenter.Value == 1)
             {
               double percentage = __instance.GetFermentationTime() / __instance.m_fermentationDuration * 100f;
               __result = Localization.instance.Localize($"$piece_fermenter_fermenting [{percentage:0}%]\n({contentName})");
               return false;
             }
-            else if (Main.fermenterTimeLeftStyle.Value == 2)
+            else if (Main.timeLeftStyleFermenter.Value == 2)
             {
               TimeSpan t = TimeSpan.FromSeconds(__instance.m_fermentationDuration - __instance.GetFermentationTime());
               string time = string.Format("{0:D2}m {1:D2}s", t.Minutes, t.Seconds);
-              __result = Localization.instance.Localize($"$piece_fermenter_fermenting: {time}\n{contentName}");
+              __result = Localization.instance.Localize($"{contentName}\n$piece_fermenter_fermenting: {time}");
               return false;
             }
             else

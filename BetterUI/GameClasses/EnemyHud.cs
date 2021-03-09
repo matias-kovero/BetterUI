@@ -19,7 +19,7 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(EnemyHud), "Awake")]
     private static void PatchDefaults(ref EnemyHud __instance)
     {
-      __instance.m_maxShowDistance = Mathf.Min(Mathf.Abs(Main.maxShowDistance.Value), maxDrawDistance);
+      __instance.m_maxShowDistance = Mathf.Min(10f * Mathf.Abs(Main.maxShowDistance.Value), maxDrawDistance);
     }
 
     [HarmonyPrefix]

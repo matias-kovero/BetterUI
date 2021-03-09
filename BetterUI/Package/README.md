@@ -20,11 +20,9 @@ If you are installing this manually, do the following _(You will need Bepinex in
 3. Run the game, it will generate automatically an configuration file into `<GameDirectory>\Bepinex\config`
 
 ## Preview
-![ItemUpgrade](https://i.nyah.moe/RwYtO.png)![ItemUpgrade2](https://i.nyah.moe/RwE8M.png)
-![ItemTooltip](https://i.nyah.moe/RwGT3.png)![AllStats](https://i.nyah.moe/RwVMz.png)
-![EnemyHUD](https://i.nyah.moe/R6PHf.png)  
-![SkillGUI](https://i.nyah.moe/R602s.png)  
-
+![Tooltips](https://i.nyah.moe/Rwitl.png)
+![Charlevels](https://i.nyah.moe/Rwk8I.png)
+![EnemyHud](https://i.nyah.moe/RwNht.png)
 
 ## Config
 ```
@@ -40,10 +38,10 @@ useCustomEnemyHud = true
 # Default value: 14
 enemyHudTextSize = 14
 
-## How far you will see enemy HP Bar
+## How far you will see enemy HP Bar. This is an multiplier, 1 = game default. 2 = 2x default
 # Setting type: Single
-# Default value: 20
-MaxShowDistance = 40
+# Default value: 1
+MaxShowDistance = 5
 
 [Item]
 
@@ -52,15 +50,27 @@ MaxShowDistance = 40
 # Default value: true
 ShowDurabilityColor = true
 
+## Show item quality as stars
+# Setting type: Boolean
+# Default value: true
+showItemStars = true
+
 ## Show customized tooltips.
 # Setting type: Boolean
 # Default value: true
-showCustomTooltips = false
+showCustomTooltips = true
 
 ## Scale item icon by this factor. Ex. 0.75 makes them 75% of original size
 # Setting type: Single
 # Default value: 0.75
 ScaleSize = 0.7
+
+[Settings]
+
+## Change colorMode. Options: 0=Normal, 1=Protanopia 
+# Setting type: Int32
+# Default value: 0
+colorMode = 0
 
 [UI]
 
@@ -92,9 +102,24 @@ showCustomCharInfo = true
 ## Show all item stats when mouse is hovered over armour amount.
 # Setting type: Boolean
 # Default value: true
-showCombinedItemStats = false
+showCombinedItemStats = true
+
+## Select how time left is shown. 0 = Default, 1 = Percentage, 2 = min:sec
+# Setting type: Int32
+# Default value: 2
+timeLeftStyleFermenter = 2
+
+## Select how time left is shown. 0 = Game Default, 1 = Percentage, 2 = min:sec
+# Setting type: Int32
+# Default value: 2
+timeLeftStylePlant = 2
 ```
 ## Changelog
+#### 1.5.1
+- Fixed Player XP Bar scaling issues on > 16:9 resolutions. Please notify if you still have issues.
+- Added custom hover text on plant & fermenter.
+- Durability now supports Protanopia color palette.
+- Other config edits.
 #### 1.5.0
 - Added custom tooltips
 - Updated recipe information. Show clearly what stats are improving when upgrading.

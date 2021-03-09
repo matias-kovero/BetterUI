@@ -29,7 +29,7 @@ namespace BetterUI.Patches
       xp_bar.m_smoothSpeed = smoothSpeed;
       xp_bar.Awake();
 
-      xp_bar.name = "RPG_XP_BAR";
+      xp_bar.name = "BU_XP_BAR";
       xp_bar.m_originalColor = barColor;
       xp_bar.ResetColor();
 
@@ -45,7 +45,12 @@ namespace BetterUI.Patches
       xpRect.offsetMax = Vector2.zero;
       xpRect.sizeDelta = new Vector2(0f, 5f);
 
-      xp_bar.m_bar.sizeDelta = new Vector2(xpRect.rect.width, xpRect.rect.height);
+      xp_bar.m_bar.anchorMin = Vector2.zero;
+      xp_bar.m_bar.anchorMax = new Vector2(1f, 0.5f);
+      xp_bar.m_bar.offsetMin = Vector2.zero;
+      xp_bar.m_bar.offsetMax = Vector2.zero;
+
+      xp_bar.m_bar.sizeDelta = new Vector2(xpRect.rect.width, 5f);
       // Render the XP Bar 
       xp_bar.gameObject.SetActive(true);
       _xp_bar = xp_bar;

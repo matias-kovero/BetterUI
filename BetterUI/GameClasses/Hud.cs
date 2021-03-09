@@ -39,11 +39,11 @@ namespace BetterUI.GameClasses
 
       // For XP Bar Debug
       /*
-      if (XP_Bar != null)
+      if (_bar != null)
       {
         
-        if (XP_Bar.m_value >= 1f) XP_Bar.m_value = 0f;
-        XP_Bar.SetValue(XP_Bar.m_value + 0.001f);
+        if (_bar.m_value >= 1f) _bar.m_value = 0f;
+        _bar.SetValue(_bar.m_value + 0.001f);
       }
       */
     }
