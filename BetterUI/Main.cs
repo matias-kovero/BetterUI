@@ -39,6 +39,7 @@ namespace BetterUI
     public static ConfigEntry<bool> showCombinedItemStats;
     public static ConfigEntry<int> timeLeftStyleFermenter;
     public static ConfigEntry<int> timeLeftStylePlant;
+    public static ConfigEntry<float> mapPinScaleSize;
 
     #endregion
 
@@ -71,6 +72,7 @@ namespace BetterUI
       customEnemyHud = Config.Bind("HUD", "useCustomEnemyHud", true, "Toggle the use of custom enemy hud");
       enemyHudTextSize = Config.Bind("HUD", "enemyHudTextSize", 14, "Select Text size on enemyHud");
       maxShowDistance = Config.Bind("HUD", "MaxShowDistance", 1f, "How far you will see enemy HP Bar. This is an multiplier, 1 = game default. 2 = 2x default");
+      mapPinScaleSize = Config.Bind("HUD", "mapPinSize", 1f, "Scale map pins by this factor. Ex. 1.5 makes the 150% of original size.");
     }
     public void Start()
     {

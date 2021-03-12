@@ -335,6 +335,7 @@
     <Compile Include="GameClasses\InventoryGrid.cs" />
     <Compile Include="GameClasses\InventoryGui.cs" />
     <Compile Include="GameClasses\ItemDrop.cs" />
+    <Compile Include="GameClasses\Minimap.cs" />
     <Compile Include="GameClasses\Plant.cs" />
     <Compile Include="GameClasses\Skills.cs" />
     <Compile Include="GameClasses\SkillsDialog.cs" />
