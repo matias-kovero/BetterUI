@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterHotkeyBar
+  public static class BetterHotkeyBar
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(HotkeyBar), "UpdateIcons")]

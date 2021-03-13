@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterEnemyHud
+  public static class BetterEnemyHud
   {
     private static readonly int _bossHPFontSize = 16;
     private static readonly int _hpFontSize = 10;

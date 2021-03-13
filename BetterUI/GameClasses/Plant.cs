@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterPlant
+  public static class BetterPlant
   {
     [HarmonyPrefix]
     [HarmonyPatch(typeof(Plant), "GetHoverText")]

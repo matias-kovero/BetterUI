@@ -8,7 +8,7 @@ using HarmonyLib;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterFermenter
+  public static class BetterFermenter
   {
     [HarmonyPrefix]
     [HarmonyPatch(typeof(Fermenter), "GetHoverText")]

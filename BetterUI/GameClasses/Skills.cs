@@ -8,7 +8,7 @@ using HarmonyLib;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterSkills
+  public static class BetterSkills
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Skills), "RaiseSkill")]

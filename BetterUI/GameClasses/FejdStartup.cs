@@ -8,7 +8,7 @@ using HarmonyLib;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterFejdStartup
+  public static class BetterFejdStartup
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(FejdStartup), "SetupGui")]

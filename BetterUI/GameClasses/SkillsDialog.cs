@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterSkillsDialog
+  public static class BetterSkillsDialog
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(SkillsDialog), "Setup")]

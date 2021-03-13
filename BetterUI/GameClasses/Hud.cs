@@ -8,7 +8,7 @@ using HarmonyLib;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterHud
+  public static class BetterHud
   {
     private static Player _player = null;
     public static GuiBar _bar = null;

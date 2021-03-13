@@ -15,7 +15,6 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(Minimap), "Awake")]
     private static void ScalePins(Minimap __instance)
     {
-      Debug.LogWarning("Loading Minimap. Altering defaults.");
       __instance.m_pinSizeLarge *= Main.mapPinScaleSize.Value;
       __instance.m_pinSizeSmall *= Main.mapPinScaleSize.Value;
     }

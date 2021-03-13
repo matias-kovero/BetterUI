@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterInventoryGrid
+  public static class BetterInventoryGrid
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(InventoryGrid), "UpdateGui")]

@@ -8,7 +8,7 @@ using HarmonyLib;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterItemDrop
+  public static class BetterItemDrop
   {
     [HarmonyPrefix]
     [HarmonyPatch(typeof(ItemDrop), "GetHoverText")]

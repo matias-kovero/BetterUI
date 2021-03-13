@@ -9,7 +9,7 @@ using BetterUI.Patches;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  static class BetterInventoryGui
+  public static class BetterInventoryGui
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(InventoryGui), "UpdateCharacterStats")]

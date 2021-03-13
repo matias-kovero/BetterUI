@@ -10,7 +10,7 @@ using UnityEngine.UI;
 namespace BetterUI.Patches
 {
 
-  class XPBar
+  public static class XPBar
   {
     private static readonly bool smoothFill = true;
     private static readonly bool smoothDrain = true;
@@ -32,7 +32,7 @@ namespace BetterUI.Patches
       xp_bar.name = "BU_XP_BAR";
       xp_bar.m_originalColor = barColor;
       xp_bar.ResetColor();
-
+  
       xp_bar.SetMaxValue(maxValue);
       xp_bar.SetValue(0f);
 
@@ -67,7 +67,7 @@ namespace BetterUI.Patches
     }
   }
 
-  class XP
+  public static class XP
   {
     private static readonly int fXPPerSkillRank = 1;
     private static Player RPG_Player;
