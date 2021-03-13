@@ -23,15 +23,12 @@ namespace BetterUI.GameClasses
 						if (Main.timeLeftStylePlant.Value == 1)
             {
 							double percentage = __instance.TimeSincePlanted() /__instance.GetGrowTime();
-							__result = Localization.instance.Localize($"{__instance.m_name} ({percentage:P0})"); //$piece_plant_healthy
+							__result = Localization.instance.Localize($"{__instance.m_name}\n{percentage:P0}"); //$piece_plant_healthy
 							return false;
 						}
 						else
             {
-							TimeSpan t = TimeSpan.FromSeconds(__instance.GetGrowTime() - __instance.TimeSincePlanted());
-							string time;
-							if (t.Hours > 0) time = string.Format("{0:D2}h {1:D2}m {2:D2}s", t.Hours, t.Minutes, t.Seconds);
-							else time = string.Format("{0:D2}m {1:D2}s", t.Minutes, t.Seconds);
+							string time = Patches.Helpers.TimeString(__instance.GetGrowTime(), __instance.TimeSincePlanted());
 							__result = Localization.instance.Localize($"{__instance.m_name}\n{time}"); //$piece_plant_healthy
 							return false;
 						}
