@@ -39,6 +39,7 @@ namespace BetterUI
     public static ConfigEntry<bool> showCombinedItemStats;
     public static ConfigEntry<int> timeLeftStyleFermenter;
     public static ConfigEntry<int> timeLeftStylePlant;
+    public static ConfigEntry<int> timeLeftStyleCookingStation;
     public static ConfigEntry<float> mapPinScaleSize;
 
     #endregion
@@ -63,6 +64,7 @@ namespace BetterUI
       showCombinedItemStats = Config.Bind("UI", "showCombinedItemStats", true, "Show all item stats when mouse is hovered over armour amount.");
       timeLeftStyleFermenter = Config.Bind("UI", "timeLeftStyleFermenter", 2, "Select how time left is shown. 0 = Default, 1 = Percentage, 2 = min:sec");
       timeLeftStylePlant = Config.Bind("UI", "timeLeftStylePlant", 2, "Select how time left is shown. 0 = Game Default, 1 = Percentage, 2 = min:sec");
+      timeLeftStyleCookingStation = Config.Bind("UI", "timeLeftStyleCookingStation", 2, "Select how time left is shown. 0 = Hidden, 1= %, 2 = min:sec");
 
       showDurabilityColor = Config.Bind("Item", "ShowDurabilityColor", true, "Show colored durability bars");
       showItemStars = Config.Bind("Item", "showItemStars", true, "Show item quality as stars");
