@@ -1,4 +1,10 @@
-[<p align="center"><img width="600" src="/logo.png"></p>](/logo.png)
+[<p align="center"><img width="600" src="/logo.png"></p>](/logo.png) 
+
+![Version](https://img.shields.io/endpoint?color=success&label=Version&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fnexusmods%2F189%2Fversion)
+[![](https://img.shields.io/endpoint?label=TS%20Downloads&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fthunderstore%2FMasa%2FBetterUI%2Fdownloads)](https://valheim.thunderstore.io/package/Masa/BetterUI/)
+[![](https://img.shields.io/endpoint?label=TS%20%F0%9F%91%8D&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fthunderstore%2FMasa%2FBetterUI%2Fratings)](https://valheim.thunderstore.io/package/Masa/BetterUI/)
+[![](https://img.shields.io/endpoint?label=Nexus%20endorsed&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fnexusmods%2F189%2Fendorsed)](https://www.nexusmods.com/valheim/mods/189)
+[![](https://img.shields.io/endpoint?label=Nexus%20views&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fnexusmods%2F189%2Fviews)](https://www.nexusmods.com/valheim/mods/189)
 # BetterUI 
 The main idea behind *BetterUI* is to make the interface of [Valheim](https://www.valheimgame.com/) more pleasant and easier to understand.  
 I'll add slowly new additions to the mod - and fix bugs that users report.
