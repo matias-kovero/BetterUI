@@ -62,9 +62,9 @@ namespace BetterUI
       skillUITextSize = Config.Bind("UI", "skillUITextSize", 14, "Select text size on skills UI");
       showCustomCharInfo = Config.Bind("UI", "showCustomCharInfo", true, "Toggle the visibility of custom info on character selection");
       showCombinedItemStats = Config.Bind("UI", "showCombinedItemStats", true, "Show all item stats when mouse is hovered over armour amount.");
-      timeLeftStyleFermenter = Config.Bind("UI", "timeLeftStyleFermenter", 2, "Select how time left is shown. 0 = Default, 1 = Percentage, 2 = min:sec");
-      timeLeftStylePlant = Config.Bind("UI", "timeLeftStylePlant", 2, "Select how time left is shown. 0 = Game Default, 1 = Percentage, 2 = min:sec");
-      timeLeftStyleCookingStation = Config.Bind("UI", "timeLeftStyleCookingStation", 2, "Select how time left is shown. 0 = Hidden, 1= %, 2 = min:sec");
+      timeLeftStyleFermenter = Config.Bind("UI", "timeLeftStyleFermenter", 2, "Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left");
+      timeLeftStylePlant = Config.Bind("UI", "timeLeftStylePlant", 2, "Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left");
+      timeLeftStyleCookingStation = Config.Bind("UI", "timeLeftStyleCookingStation", 2, "Select duration display. 0 = Default, 1= % Done, 2 = min:sec left");
 
       showDurabilityColor = Config.Bind("Item", "ShowDurabilityColor", true, "Show colored durability bars");
       showItemStars = Config.Bind("Item", "showItemStars", true, "Show item quality as stars");

@@ -327,6 +327,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameClasses\CookingStation.cs" />
     <Compile Include="GameClasses\EnemyHud.cs" />
     <Compile Include="GameClasses\FejdStartup.cs" />
     <Compile Include="GameClasses\Fermenter.cs" />

@@ -4,7 +4,7 @@ using BetterUI.Patches;
 namespace BetterUI.GameClasses
 {
   [HarmonyPatch]
-  public static class BetterCookingStation
+  static class BetterCookingStation
   {
     // [E] Cook item
     private static readonly string _cookItem = "[<color=yellow><b>$KEY_Use</b></color>] $piece_cstand_cook";
