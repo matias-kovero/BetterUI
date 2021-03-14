@@ -30,6 +30,7 @@ namespace BetterUI
     public static ConfigEntry<bool> showItemStars;
     public static ConfigEntry<float> iconScaleSize;
     public static ConfigEntry<bool> customEnemyHud;
+    public static ConfigEntry<int> enemyLvlStyle;
     public static ConfigEntry<bool> customSkillUI;
     public static ConfigEntry<float> maxShowDistance;
     public static ConfigEntry<int> enemyHudTextSize;
@@ -72,6 +73,7 @@ namespace BetterUI
       iconScaleSize = Config.Bind("Item", "ScaleSize", 0.75f, "Scale item icon by this factor. Ex. 0.75 makes them 75% of original size");
 
       customEnemyHud = Config.Bind("HUD", "useCustomEnemyHud", true, "Toggle the use of custom enemy hud");
+      enemyLvlStyle = Config.Bind("HUD", "enemyLvlStyle", 1, "Choose how enemy lvl is shown. 0 = Default(stars) | 1 = Prefix before name (Lv. 1) | 2 = Both");
       enemyHudTextSize = Config.Bind("HUD", "enemyHudTextSize", 14, "Select Text size on enemyHud");
       maxShowDistance = Config.Bind("HUD", "MaxShowDistance", 1f, "How far you will see enemy HP Bar. This is an multiplier, 1 = game default. 2 = 2x default");
       mapPinScaleSize = Config.Bind("HUD", "mapPinSize", 1f, "Scale map pins by this factor. Ex. 1.5 makes the 150% of original size.");

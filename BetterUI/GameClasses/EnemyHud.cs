@@ -71,7 +71,10 @@ namespace BetterUI.GameClasses
       else
       {
         hudData.m_name.fontSize = Main.enemyHudTextSize.Value;
-        hudData.m_name.text = hudData.m_name.text.Insert(0, $"<size={Main.enemyHudTextSize.Value - 2}><color=white>Lv.{c.m_level} </color></size> ");
+        if (Main.enemyLvlStyle.Value != 0)
+        {
+          hudData.m_name.text = hudData.m_name.text.Insert(0, $"<size={Main.enemyHudTextSize.Value - 2}><color=white>Lv.{c.m_level} </color></size> ");
+        }
         Text hpText = Object.Instantiate(hudData.m_name, hudData.m_name.transform.parent);
         hpText.name = _hpPrefix;
         hpText.rectTransform.anchoredPosition = new Vector2(hpText.rectTransform.anchoredPosition.x, 7.0f); // orig.y = 21f
@@ -87,6 +90,12 @@ namespace BetterUI.GameClasses
         hudData.m_aware.gameObject.SetActive(false);
         hudData.m_healthFast.m_bar.sizeDelta = new Vector2(hudData.m_healthFast.m_width, hpRoot.sizeDelta.y);
         hudData.m_healthSlow.m_bar.sizeDelta = new Vector2(hudData.m_healthSlow.m_width, hpRoot.sizeDelta.y);
+
+        if (Main.enemyLvlStyle.Value == 1)
+        {
+          hudData.m_level2.gameObject.SetActive(false);
+          hudData.m_level3.gameObject.SetActive(false);
+        }
       }
       __instance.m_huds.Add(c, hudData);
     }
