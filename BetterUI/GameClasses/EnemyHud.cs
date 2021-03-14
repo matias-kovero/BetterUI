@@ -137,6 +137,11 @@ namespace BetterUI.GameClasses
             bool alerted = value.m_character.GetBaseAI().IsAlerted();
             value.m_name.color = (aware || alerted) ? (alerted ? Color.red : Color.yellow) : Color.white;
             Utils.FindChild(value.m_name.transform.parent, _hpPrefix).GetComponent<Text>().text = $"<size={_hpFontSize}>{Mathf.CeilToInt(value.m_character.GetHealth())}/{value.m_character.GetMaxHealth():0}</size>";
+            if (Main.enemyLvlStyle.Value == 1)
+            {
+              value.m_level2.gameObject.SetActive(false);
+              value.m_level3.gameObject.SetActive(false);
+            }
           }
         }
       }
