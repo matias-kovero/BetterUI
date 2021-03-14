@@ -218,6 +218,7 @@ namespace BetterUI.Patches
       sb.Append("\n");
 
       tooltip.m_text = sb.ToString();
+      tooltip.m_topic = $"Lv.{XP.level} {player.GetPlayerName()}";
     }
  
     private static void BlockStats(Player player, StringBuilder sb)
