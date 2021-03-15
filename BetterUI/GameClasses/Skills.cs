@@ -12,7 +12,7 @@ namespace BetterUI.GameClasses
   {
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Skills), "RaiseSkill")]
-    private static void Notification(ref Skills __instance, ref Skills.SkillType skillType, ref float factor)
+    private static void Notification(Skills __instance, Skills.SkillType skillType, float factor = 1f)
     {
       if (Main.showXPNotifications.Value)
       {
