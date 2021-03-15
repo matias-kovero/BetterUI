@@ -11,19 +11,7 @@ namespace BetterUI.GameClasses
     {
 			if (Main.timeLeftStylePlant.Value == 0) return true;
 
-			switch (__instance.m_status)
-      {
-				case Plant.Status.Healthy:
-					string time = Main.timeLeftStylePlant.Value == 1 ?
-						$"{__instance.TimeSincePlanted() / __instance.GetGrowTime():P0}" :
-						Patches.Helpers.TimeString(__instance.GetGrowTime() - __instance.TimeSincePlanted());
-
-					__result = Localization.instance.Localize($"{__instance.m_name}\n{time}");
-					return false;
-
-				default:
-					return true;
-      }
+      return Patches.HoverText.PatchPlant(__instance, ref __result);
     }
   }
 }
