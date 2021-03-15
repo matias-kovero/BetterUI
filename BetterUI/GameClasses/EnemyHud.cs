@@ -60,13 +60,16 @@ namespace BetterUI.GameClasses
       }
       else if (c.IsBoss())
       {
-        // Edits to Boss HP Bar
-        Text hpText = Object.Instantiate(hudData.m_name, hudData.m_name.transform.parent);
-        hpText.name = _bossHPPrefix;
-        hpText.rectTransform.anchoredPosition = new Vector2(hpText.rectTransform.anchoredPosition.x, 0.0f); // orig.y = 21f
-        hpText.text = $"<size={_bossHPFontSize}>{hudData.m_character.GetHealth():0} / {hudData.m_character.GetMaxHealth():0}</size>";
-        hpText.color = Color.white;
-        Object.Destroy(hpText.GetComponent<Outline>());
+        if (!Main.hideEnemyHPText.Value)
+        {
+          // Edits to Boss HP Bar
+          Text hpText = Object.Instantiate(hudData.m_name, hudData.m_name.transform.parent);
+          hpText.name = _bossHPPrefix;
+          hpText.rectTransform.anchoredPosition = new Vector2(hpText.rectTransform.anchoredPosition.x, 0.0f); // orig.y = 21f
+          hpText.text = $"<size={_bossHPFontSize}>{hudData.m_character.GetHealth():0} / {hudData.m_character.GetMaxHealth():0}</size>";
+          hpText.color = Color.white;
+          Object.Destroy(hpText.GetComponent<Outline>());
+        }
       }
       else
       {
@@ -75,12 +78,15 @@ namespace BetterUI.GameClasses
         {
           hudData.m_name.text = hudData.m_name.text.Insert(0, $"<size={Main.enemyHudTextSize.Value - 2}><color=white>Lv.{c.m_level} </color></size> ");
         }
-        Text hpText = Object.Instantiate(hudData.m_name, hudData.m_name.transform.parent);
-        hpText.name = _hpPrefix;
-        hpText.rectTransform.anchoredPosition = new Vector2(hpText.rectTransform.anchoredPosition.x, 7.0f); // orig.y = 21f
-        hpText.text = $"<size={_hpFontSize}>{hudData.m_character.GetHealth():0}/{hudData.m_character.GetMaxHealth():0}</size>";
-        hpText.color = Color.white;
-        Object.Destroy(hpText.GetComponent<Outline>());
+        if (!Main.hideEnemyHPText.Value)
+        {
+          Text hpText = Object.Instantiate(hudData.m_name, hudData.m_name.transform.parent);
+          hpText.name = _hpPrefix;
+          hpText.rectTransform.anchoredPosition = new Vector2(hpText.rectTransform.anchoredPosition.x, 7.0f); // orig.y = 21f
+          hpText.text = $"<size={_hpFontSize}>{hudData.m_character.GetHealth():0}/{hudData.m_character.GetMaxHealth():0}</size>";
+          hpText.color = Color.white;
+          Object.Destroy(hpText.GetComponent<Outline>());
+        }
 
         // Resize and position everything
         RectTransform hpRoot = (hudData.m_healthRoot.transform as RectTransform);
@@ -126,7 +132,10 @@ namespace BetterUI.GameClasses
           }
           else if (value.m_character.IsBoss())
           {
-            Utils.FindChild(value.m_name.transform.parent, _bossHPPrefix).GetComponent<Text>().text = $"<size={_bossHPFontSize}>{Mathf.CeilToInt(value.m_character.GetHealth())} / {value.m_character.GetMaxHealth():0}</size>";
+            if (!Main.hideEnemyHPText.Value)
+            {
+              Utils.FindChild(value.m_name.transform.parent, _bossHPPrefix).GetComponent<Text>().text = $"<size={_bossHPFontSize}>{Mathf.CeilToInt(value.m_character.GetHealth())} / {value.m_character.GetMaxHealth():0}</size>";
+            }
           }
           else
           {
@@ -136,7 +145,12 @@ namespace BetterUI.GameClasses
             bool aware = value.m_character.GetBaseAI().HaveTarget();
             bool alerted = value.m_character.GetBaseAI().IsAlerted();
             value.m_name.color = (aware || alerted) ? (alerted ? Color.red : Color.yellow) : Color.white;
-            Utils.FindChild(value.m_name.transform.parent, _hpPrefix).GetComponent<Text>().text = $"<size={_hpFontSize}>{Mathf.CeilToInt(value.m_character.GetHealth())}/{value.m_character.GetMaxHealth():0}</size>";
+
+            if (!Main.hideEnemyHPText.Value)
+            {
+              Utils.FindChild(value.m_name.transform.parent, _hpPrefix).GetComponent<Text>().text = $"<size={_hpFontSize}>{Mathf.CeilToInt(value.m_character.GetHealth())}/{value.m_character.GetMaxHealth():0}</size>";
+            }
+
             if (Main.enemyLvlStyle.Value == 1)
             {
               value.m_level2.gameObject.SetActive(false);

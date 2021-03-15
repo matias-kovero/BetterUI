@@ -34,6 +34,7 @@ namespace BetterUI
     public static ConfigEntry<bool> customSkillUI;
     public static ConfigEntry<float> maxShowDistance;
     public static ConfigEntry<int> enemyHudTextSize;
+    public static ConfigEntry<bool> hideEnemyHPText;
     public static ConfigEntry<int> skillUITextSize;
     public static ConfigEntry<bool> showCustomCharInfo;
     public static ConfigEntry<bool> showCustomTooltips;
@@ -75,6 +76,7 @@ namespace BetterUI
       iconScaleSize = Config.Bind("Item", "ScaleSize", 0.75f, "Scale item icon by this factor. Ex. 0.75 makes them 75% of original size");
 
       customEnemyHud = Config.Bind("HUD", "useCustomEnemyHud", true, "Toggle the use of custom enemy hud");
+      hideEnemyHPText = Config.Bind("HUD", "hideEnemyHPText", false, "Toggle if you want to hide the text with HP amount");
       enemyLvlStyle = Config.Bind("HUD", "enemyLvlStyle", 1, "Choose how enemy lvl is shown. 0 = Default(stars) | 1 = Prefix before name (Lv. 1) | 2 = Both");
       enemyHudTextSize = Config.Bind("HUD", "enemyHudTextSize", 14, "Select Text size on enemyHud");
       maxShowDistance = Config.Bind("HUD", "MaxShowDistance", 1f, "How far you will see enemy HP Bar. This is an multiplier, 1 = game default. 2 = 2x default");

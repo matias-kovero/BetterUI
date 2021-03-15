@@ -343,6 +343,7 @@
     <Compile Include="GameClasses\SkillsDialog.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Helpers.cs" />
+    <Compile Include="Patches\HoverText.cs" />
     <Compile Include="Patches\Items.cs" />
     <Compile Include="Patches\Menu.cs" />
     <Compile Include="Patches\RPG.cs" />
