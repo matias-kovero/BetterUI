@@ -1,9 +1,9 @@
 {
   "name": "BetterUI",
   "description": "Adds minor edits to the UI.",
-  "version_number": "1.5.1",
+  "version_number": "1.6.0",
   "website_url": "",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.700"
+    "denikson-BepInExPack_Valheim-5.4.800"
   ]
 }

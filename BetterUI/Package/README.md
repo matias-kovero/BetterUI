@@ -4,12 +4,16 @@
 This mod updates the game UI with few subtle edits.  
 You are able to edit and select what updates you want to use. 
 
-Feel free to check my other mod as well [First-Person Mod](https://valheim.thunderstore.io/package/Masa/FirstPerson/)
+[![Version](https://img.shields.io/endpoint?color=success&label=Version&style=flat-square&url=https%3A%2F%2Fvalheim-modtracker.vercel.app%2Fnexusmods%2F189%2Fversion)](https://github.com/matias-kovero/BetterUI)
+
+Feel free to check my other mod as well [First-Person Mod](https://valheim.thunderstore.io/package/Masa/FirstPerson/)  
+
+[![](https://i.nyah.moe/Rb5tv.png)](https://zap-hosting.com/BetterUI)
 ## Table of Contents
 1. [Installation](#Installation-(manual))
 2. [Preview](#Preview)
 3. [Default Config](#Config)
-4. [Changelog](#Changelog)
+4. [Changelog](#Changelog)  
 
 ## Installation (manual)
 
@@ -20,6 +24,7 @@ If you are installing this manually, do the following _(You will need Bepinex in
 3. Run the game, it will generate automatically an configuration file into `<GameDirectory>\Bepinex\config`
 
 ## Preview
+![HoverInfo](https://i.nyah.moe/Rbb2l.png)
 ![Tooltips](https://i.nyah.moe/Rwitl.png)
 ![Charlevels](https://i.nyah.moe/Rwk8I.png)
 ![EnemyHud](https://i.nyah.moe/RwNht.png)
@@ -33,6 +38,16 @@ If you are installing this manually, do the following _(You will need Bepinex in
 # Default value: true
 useCustomEnemyHud = true
 
+## Toggle if you want to hide the text with HP amount
+# Setting type: Boolean
+# Default value: false
+hideEnemyHPText = false
+
+## Choose how enemy lvl is shown. 0 = Default(stars) | 1 = Prefix before name (Lv. 1) | 2 = Both
+# Setting type: Int32
+# Default value: 1
+enemyLvlStyle = 1
+
 ## Select Text size on enemyHud
 # Setting type: Int32
 # Default value: 14
@@ -42,6 +57,11 @@ enemyHudTextSize = 14
 # Setting type: Single
 # Default value: 1
 MaxShowDistance = 5
+
+## Scale map pins by this factor. Ex. 1.5 makes the 150% of original size.
+# Setting type: Single
+# Default value: 1
+mapPinSize = 1.2
 
 [Item]
 
@@ -92,7 +112,7 @@ useCustomSkillUI = true
 ## Select text size on skills UI
 # Setting type: Int32
 # Default value: 14
-skillUITextSize = 24
+skillUITextSize = 14
 
 ## Toggle the visibility of custom info on character selection
 # Setting type: Boolean
@@ -104,17 +124,32 @@ showCustomCharInfo = true
 # Default value: true
 showCombinedItemStats = true
 
-## Select how time left is shown. 0 = Default, 1 = Percentage, 2 = min:sec
+## Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left
 # Setting type: Int32
 # Default value: 2
 timeLeftStyleFermenter = 2
 
-## Select how time left is shown. 0 = Game Default, 1 = Percentage, 2 = min:sec
+## Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left
 # Setting type: Int32
 # Default value: 2
 timeLeftStylePlant = 2
+
+## Select duration display. 0 = Default, 1= % Done, 2 = min:sec left
+# Setting type: Int32
+# Default value: 2
+timeLeftStyleCookingStation = 2
+
+## Select how chest emptyness is displayed. 0 = Default | 1 = % | 2 = items / max_room. 
+# Setting type: Int32
+# Default value: 2
+chestHasRoomStyle = 2
 ```
 ## Changelog
+#### 1.6.0
+- Added custom map pin size (for the 4k gang)
+- More hovertext information (Cooking station, chest)
+- Fixed issue with XP notification caused crashing
+- More modification options on cofig.
 #### 1.5.1
 - Fixed Player XP Bar scaling issues on > 16:9 resolutions. Please notify if you still have issues.
 - Added custom hover text on plant & fermenter.
