@@ -9,6 +9,8 @@
 The main idea behind *BetterUI* is to make the interface of [Valheim](https://www.valheimgame.com/) more pleasant and easier to understand.  
 I'll add slowly new additions to the mod - and fix bugs that users report.
 
+[![](https://i.nyah.moe/Rb5tv.png)](https://zap-hosting.com/BetterUI)
+
 ## Where to download 
 [Thunderstore](https://valheim.thunderstore.io/package/Masa/BetterUI/)  _*suggesting to use their mod manager for an quick & easy install_ ([r2modman](https://valheim.thunderstore.io/package/ebkr/r2modman/))
 
