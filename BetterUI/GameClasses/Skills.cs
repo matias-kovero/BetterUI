@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HarmonyLib;
+﻿using HarmonyLib;
 
 namespace BetterUI.GameClasses
 {
@@ -14,6 +9,8 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(Skills), "RaiseSkill")]
     private static void Notification(Skills __instance, Skills.SkillType skillType, float factor = 1f)
     {
+      if (skillType == Skills.SkillType.None) return;
+
       if (Main.showXPNotifications.Value)
       {
         Skills.Skill skill = __instance.GetSkill(skillType);
