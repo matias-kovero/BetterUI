@@ -52,7 +52,7 @@
     public static string PatchContainer(Container container)
     {
       string room = Main.chestHasRoomStyle.Value == 1 ? 
-        $"{container.m_inventory.SlotsUsedPercentage()}%" : 
+        $"{container.m_inventory.SlotsUsedPercentage():F0}%" : 
         $"{container.m_inventory.NrOfItems()}/{container.m_inventory.GetWidth() * container.m_inventory.GetHeight()}";
 
       return Localization.instance.Localize($"{container.m_name}: {room} {_containerBase}");
