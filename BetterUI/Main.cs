@@ -25,6 +25,8 @@ namespace BetterUI
 
     public static ConfigEntry<int> colorMode;
     public static ConfigEntry<bool> showXPNotifications;
+    public static ConfigEntry<bool> extendedXPNotification;
+    public static ConfigEntry<int> notificationTextSize;
     public static ConfigEntry<bool> showCharacterXP;
     public static ConfigEntry<bool> showDurabilityColor;
     public static ConfigEntry<bool> showItemStars;
@@ -61,6 +63,8 @@ namespace BetterUI
 
       showCharacterXP = Config.Bind("UI", "showCharacterXP", true, "Show Character XP Bar.");
       showXPNotifications = Config.Bind("UI", "ShowXPNotifications", true, "Show when you gain xp from actions.");
+      extendedXPNotification = Config.Bind("UI", "extendedXPNotification", true, "Extend notification with: (xp gained) (overall xp)");
+      notificationTextSize = Config.Bind("UI", "notificationTextSize", 14, "Edit XP notification font size.");
       customSkillUI = Config.Bind("UI", "useCustomSkillUI", true, "Toggle the use of custom skills UI");
       skillUITextSize = Config.Bind("UI", "skillUITextSize", 14, "Select text size on skills UI");
       showCustomCharInfo = Config.Bind("UI", "showCustomCharInfo", true, "Toggle the visibility of custom info on character selection");

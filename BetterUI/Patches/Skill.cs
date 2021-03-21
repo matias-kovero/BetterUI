@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HarmonyLib;
-using Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,14 +7,19 @@ namespace BetterUI.Patches
 {
   class XPNotification
   {
-    private static readonly int fontSize = 14;
-
     public static void Show(Skills.Skill skill, float factor)
     {
-      float acc = (float)Math.Round(skill.m_accumulator * 100f) / 100f;
-      float max = (float)Math.Round(skill.GetNextLevelRequirement() * 100f) / 100f;
-      string str = Localization.instance.Localize($"XP for $skill_{skill.m_info.m_skill.ToString().ToLower()} (+{skill.m_info.m_increseStep * factor})\n[{acc}/{max}] ({skill.GetLevelPercentage() * 100f:0.00}%)");
-      MessageHud.instance.ShowMessage(MessageHud.MessageType.TopLeft, $"<size={fontSize}>{str}</size>");
+      string notif_str = $"$skill_{ skill.m_info.m_skill.ToString().ToLower()}: {skill.GetLevelPercentage():P2}";
+
+      if (Main.extendedXPNotification.Value)
+      {
+        float acc = (float)Math.Round(skill.m_accumulator * 100f) / 100f;
+        float max = (float)Math.Round(skill.GetNextLevelRequirement() * 100f) / 100f;
+        notif_str += $" (+{ skill.m_info.m_increseStep* factor})\n[{acc}/{max}]";
+      }
+
+      string str = Localization.instance.Localize(notif_str);
+      MessageHud.instance.ShowMessage(MessageHud.MessageType.TopLeft, $"<size={Main.notificationTextSize.Value}>{str}</size>");
     }
   }
 
