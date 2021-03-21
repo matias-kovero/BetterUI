@@ -145,6 +145,9 @@ timeLeftStyleCookingStation = 2
 chestHasRoomStyle = 2
 ```
 ## Changelog
+#### 1.6.1
+- Fixed fishing rod causing skills to crash / losing session progress.
+- Removed decimals from chest percentage.
 #### 1.6.0
 - Added custom map pin size (for the 4k gang)
 - More hovertext information (Cooking station, chest)
