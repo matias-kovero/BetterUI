@@ -13,13 +13,14 @@ namespace BetterUI.GameClasses
     private static readonly string _bossHPPrefix = "BU_bossHPText";
     private static readonly string _hpPrefix = "BU_hpText";
 
-    public static readonly float maxDrawDistance = 50f;
+    public static readonly float maxDrawDistance = 3f;
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(EnemyHud), "Awake")]
     private static void PatchDefaults(ref EnemyHud __instance)
     {
-      __instance.m_maxShowDistance = Mathf.Min(10f * Mathf.Abs(Main.maxShowDistance.Value), maxDrawDistance);
+      float limiter = Mathf.Min(Mathf.Abs(Main.maxShowDistance.Value), maxDrawDistance);
+      __instance.m_maxShowDistance *= limiter;
     }
 
     [HarmonyPrefix]
