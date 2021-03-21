@@ -48,7 +48,7 @@ namespace BetterUI.Patches
         Utils.FindChild(gameObject.transform, "icon").GetComponent<Image>().sprite = skill.m_info.m_icon;
         Utils.FindChild(gameObject.transform, "name").GetComponent<Text>().text = Localization.instance.Localize("$skill_" + skill.m_info.m_skill.ToString().ToLower() + $"\n<size={Main.skillUITextSize.Value - 2}>Lvl: {(int)skill.m_level}</size>");
         Utils.FindChild(gameObject.transform, "name").GetComponent<Text>().fontSize = Main.skillUITextSize.Value;
-        Utils.FindChild(gameObject.transform, "leveltext").GetComponent<Text>().text = $"<size=10>{acc} ({skill.GetLevelPercentage() * 100f:0.##}%)</size>";
+        Utils.FindChild(gameObject.transform, "leveltext").GetComponent<Text>().text = $"<size={Main.skillUITextSize.Value-4}>{acc} ({skill.GetLevelPercentage() * 100f:0.##}%)</size>";
         Utils.FindChild(gameObject.transform, "levelbar").GetComponent<GuiBar>().SetValue(skill.GetLevelPercentage());
 
         // Alter existing xpBar size to fill currentlevel area as well.
