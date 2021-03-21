@@ -145,6 +145,9 @@ timeLeftStyleCookingStation = 2
 chestHasRoomStyle = 2
 ```
 ## Changelog
+#### 1.6.2
+- Fixed issues with enemyHud draw distance defaulting to smaller than game default
+- Skill percentage text is now scaled with skillUITextSize
 #### 1.6.1
 - Fixed fishing rod causing skills to crash / losing session progress.
 - Removed decimals from chest percentage.
