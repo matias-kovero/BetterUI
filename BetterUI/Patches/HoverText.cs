@@ -2,7 +2,7 @@
 {
   static class HoverText
   {
-    private static readonly string _containerBase = "\n[<color=yellow><b>$KEY_Use</b></color>] $piece_container_open";
+    private static readonly string _containerBase = "[<color=yellow><b>$KEY_Use</b></color>] $piece_container_open";
 
     public static bool PatchFermenter(Fermenter fermenter, ref string hoverText)
     {
@@ -55,7 +55,7 @@
         $"{container.m_inventory.SlotsUsedPercentage():F0}%" : 
         $"{container.m_inventory.NrOfItems()}/{container.m_inventory.GetWidth() * container.m_inventory.GetHeight()}";
 
-      return Localization.instance.Localize($"{container.m_name}: {room} {_containerBase}");
+      return Localization.instance.Localize($"{container.m_name} ( {room} )\n{_containerBase}");
     }
   }
 }
