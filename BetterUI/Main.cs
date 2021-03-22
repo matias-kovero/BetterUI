@@ -16,7 +16,7 @@ namespace BetterUI
       MODNAME = "BetterUI",
       AUTHOR = "MK",
       GUID = AUTHOR + "_" + MODNAME,
-      VERSION = "1.6.2";
+      VERSION = "1.6.3";
 
     internal readonly ManualLogSource log;
     internal readonly Harmony harmony;
@@ -63,7 +63,7 @@ namespace BetterUI
 
       showCharacterXP = Config.Bind("UI", "showCharacterXP", true, "Show Character XP Bar.");
       showXPNotifications = Config.Bind("UI", "ShowXPNotifications", true, "Show when you gain xp from actions.");
-      extendedXPNotification = Config.Bind("UI", "extendedXPNotification", true, "Extend notification with: (xp gained) (overall xp)");
+      extendedXPNotification = Config.Bind("UI", "extendedXPNotification", true, "Extend notification with: (xp gained) [current/overall xp]");
       notificationTextSize = Config.Bind("UI", "notificationTextSize", 14, "Edit XP notification font size.");
       customSkillUI = Config.Bind("UI", "useCustomSkillUI", true, "Toggle the use of custom skills UI");
       skillUITextSize = Config.Bind("UI", "skillUITextSize", 14, "Select text size on skills UI");

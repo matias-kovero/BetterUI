@@ -12,8 +12,7 @@ Feel free to check my other mod as well [First-Person Mod](https://valheim.thund
 ## Table of Contents
 1. [Installation](#Installation-(manual))
 2. [Preview](#Preview)
-3. [Default Config](#Config)
-4. [Changelog](#Changelog)  
+3. [Changelog](#Changelog)  
 
 ## Installation (manual)
 
@@ -29,122 +28,11 @@ If you are installing this manually, do the following _(You will need Bepinex in
 ![Charlevels](https://i.nyah.moe/Rwk8I.png)
 ![EnemyHud](https://i.nyah.moe/RwNht.png)
 
-## Config
-```
-[HUD]
 
-## Toggle the use of custom enemy hud
-# Setting type: Boolean
-# Default value: true
-useCustomEnemyHud = true
-
-## Toggle if you want to hide the text with HP amount
-# Setting type: Boolean
-# Default value: false
-hideEnemyHPText = false
-
-## Choose how enemy lvl is shown. 0 = Default(stars) | 1 = Prefix before name (Lv. 1) | 2 = Both
-# Setting type: Int32
-# Default value: 1
-enemyLvlStyle = 1
-
-## Select Text size on enemyHud
-# Setting type: Int32
-# Default value: 14
-enemyHudTextSize = 14
-
-## How far you will see enemy HP Bar. This is an multiplier, 1 = game default. 2 = 2x default
-# Setting type: Single
-# Default value: 1
-MaxShowDistance = 5
-
-## Scale map pins by this factor. Ex. 1.5 makes the 150% of original size.
-# Setting type: Single
-# Default value: 1
-mapPinSize = 1.2
-
-[Item]
-
-## Show colored durability bars
-# Setting type: Boolean
-# Default value: true
-ShowDurabilityColor = true
-
-## Show item quality as stars
-# Setting type: Boolean
-# Default value: true
-showItemStars = true
-
-## Show customized tooltips.
-# Setting type: Boolean
-# Default value: true
-showCustomTooltips = true
-
-## Scale item icon by this factor. Ex. 0.75 makes them 75% of original size
-# Setting type: Single
-# Default value: 0.75
-ScaleSize = 0.7
-
-[Settings]
-
-## Change colorMode. Options: 0=Normal, 1=Protanopia 
-# Setting type: Int32
-# Default value: 0
-colorMode = 0
-
-[UI]
-
-## Show Character XP Bar.
-# Setting type: Boolean
-# Default value: true
-showCharacterXP = true
-
-## Show when you gain xp from actions.
-# Setting type: Boolean
-# Default value: true
-ShowXPNotifications = true
-
-## Toggle the use of custom skills UI
-# Setting type: Boolean
-# Default value: true
-useCustomSkillUI = true
-
-## Select text size on skills UI
-# Setting type: Int32
-# Default value: 14
-skillUITextSize = 14
-
-## Toggle the visibility of custom info on character selection
-# Setting type: Boolean
-# Default value: true
-showCustomCharInfo = true
-
-## Show all item stats when mouse is hovered over armour amount.
-# Setting type: Boolean
-# Default value: true
-showCombinedItemStats = true
-
-## Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left
-# Setting type: Int32
-# Default value: 2
-timeLeftStyleFermenter = 2
-
-## Select duration display. 0 = Default, 1 = % Done, 2 = min:sec left
-# Setting type: Int32
-# Default value: 2
-timeLeftStylePlant = 2
-
-## Select duration display. 0 = Default, 1= % Done, 2 = min:sec left
-# Setting type: Int32
-# Default value: 2
-timeLeftStyleCookingStation = 2
-
-## Select how chest emptyness is displayed. 0 = Default | 1 = % | 2 = items / max_room. 
-# Setting type: Int32
-# Default value: 2
-chestHasRoomStyle = 2
-```
 ## Changelog
+#### 1.6.3
+- Container hover text follows original format
+- XP Notification customization (text size, extended information)
 #### 1.6.2
 - Fixed issues with enemyHud draw distance defaulting to smaller than game default
 - Skill percentage text is now scaled with skillUITextSize
