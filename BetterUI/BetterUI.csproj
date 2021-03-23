@@ -341,6 +341,7 @@
     <Compile Include="GameClasses\Plant.cs" />
     <Compile Include="GameClasses\Skills.cs" />
     <Compile Include="GameClasses\SkillsDialog.cs" />
+    <Compile Include="GameClasses\Smelter.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Helpers.cs" />
     <Compile Include="Patches\HoverText.cs" />
