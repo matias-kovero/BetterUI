@@ -30,6 +30,10 @@ If you are installing this manually, do the following _(You will need Bepinex in
 
 
 ## Changelog
+#### 1.6.4
+- Fixed fermenter hover text after game update 0.148.6
+- Skill notifications are ingnored on lvl 100 skills
+- Chest hovertext now has option to show avaible free slots.
 #### 1.6.3
 - Container hover text follows original format
 - XP Notification customization (text size, extended information)
