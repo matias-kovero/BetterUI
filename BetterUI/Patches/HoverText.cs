@@ -3,6 +3,11 @@
   static class HoverText
   {
     private static readonly string _containerBase = "[<color=yellow><b>$KEY_Use</b></color>] $piece_container_open";
+    // [E] Cook item
+    private static readonly string _cookItem = "[<color=yellow><b>$KEY_Use</b></color>] $piece_cstand_cook";
+    // [1-8] Cook Item
+    private static readonly string _selectItem = "[<color=yellow><b>1-8</b></color>] $piece_cstand_cook";
+    private static readonly string overCookColor = "red";
 
     public static bool PatchFermenter(Fermenter fermenter, ref string hoverText)
     {
@@ -56,6 +61,46 @@
         $"{container.m_inventory.NrOfItems()}/{container.m_inventory.GetWidth() * container.m_inventory.GetHeight()}";
 
       return Localization.instance.Localize($"{container.m_name} ( {room} )\n{_containerBase}");
+    }
+
+    public static bool PatchCookingStation(CookingStation cookingStation, ref string hoverText)
+    {
+      if (cookingStation.m_nview.IsOwner() && cookingStation.IsFireLit())
+      {
+        string cookingItems = "";
+        int items = 0;
+
+        for (int i = 0; i < cookingStation.m_slots.Length; i++)
+        {
+          cookingStation.GetSlot(i, out string text, out float num);
+          if (text != "" && text != cookingStation.m_overCookedItem.name)
+          {
+            CookingStation.ItemConversion itemConversion = cookingStation.GetItemConversion(text);
+            if (text != null)
+            {
+              items++;
+              if (num > itemConversion.m_cookTime) // Item overCooking
+              {
+                string time = Main.timeLeftStyleCookingStation.Value == 1 ? $"{num / (itemConversion.m_cookTime * 2f):P0}" : Helpers.TimeString(itemConversion.m_cookTime * 2f - num);
+                cookingItems += $"\n{cookingStation.m_overCookedItem.GetHoverName()}: <color={overCookColor}>{time}</color>";
+              }
+              else
+              {
+                string time = Main.timeLeftStyleCookingStation.Value == 1 ? $"{num / itemConversion.m_cookTime:P0}" : Helpers.TimeString(itemConversion.m_cookTime - num);
+                cookingItems += $"\n{itemConversion.m_to.GetHoverName()}: {time}";
+              }
+            }
+          }
+        }
+        if (items > 0)
+        {
+          hoverText = items >= cookingStation.m_slots.Length ?
+            Localization.instance.Localize($"{cookingStation.m_name}{cookingItems}") :
+            Localization.instance.Localize($"{cookingStation.m_name}\n{_cookItem}\n{_selectItem}{cookingItems}");
+          return false; // Overwrite games default string
+        }
+      }
+      return true;
     }
   }
 }
