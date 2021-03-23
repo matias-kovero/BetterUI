@@ -7,11 +7,11 @@ namespace BetterUI.GameClasses
   {
     [HarmonyPrefix]
     [HarmonyPatch(typeof(Fermenter), "GetHoverText")]
-    private static bool GetHoverText(ref Fermenter __instance, ref string __result)
+    private static bool GetHoverText(Fermenter __instance, ref string __result)
     {
       if (Main.timeLeftStyleFermenter.Value == 0) return true;
 
-      if (!PrivateArea.CheckAccess(__instance.transform.position, 0f, false))
+      if (!PrivateArea.CheckAccess(__instance.transform.position, 0f, false, false))
       {
         __result = Localization.instance.Localize(__instance.m_name + "\n$piece_noaccess");
         return false;
