@@ -4,6 +4,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using System.IO;
 using System.Reflection;
+using UnityEngine;
 
 namespace BetterUI
 {
@@ -22,6 +23,8 @@ namespace BetterUI
     internal readonly Harmony harmony;
     internal readonly Assembly assembly;
     public readonly string modFolder;
+
+    public static readonly bool isDebug = true;
 
     public static ConfigEntry<int> colorMode;
     public static ConfigEntry<bool> showXPNotifications;
@@ -50,6 +53,14 @@ namespace BetterUI
     public static ConfigEntry<bool> useCustomHealthBar;
     public static ConfigEntry<bool> useCustomStaminaBar;
     public static ConfigEntry<bool> useCustomFoodBar;
+
+    public static ConfigEntry<bool> useCustomHud;
+
+    public static ConfigEntry<KeyCode> toggleEditMode;
+    public static ConfigEntry<KeyCode> modKeyPrimary;
+    public static ConfigEntry<KeyCode> modKeySecondary;
+
+    public static ConfigEntry<string> uiData;
     #endregion
 
 
@@ -62,6 +73,30 @@ namespace BetterUI
     }
     public void Awake()
     {
+      useCustomHud = Config.Bind("Settings",
+        nameof(useCustomHud),
+        true,
+        "Toggle whether to use custom huds or not."
+      );
+
+      toggleEditMode = Config.Bind("Settings",
+        nameof(toggleEditMode),
+        KeyCode.F7,
+        "Toggle hud editing mode."
+      );
+
+      modKeyPrimary = Config.Bind("Settings",
+        nameof(modKeyPrimary),
+        KeyCode.Mouse0,
+        "Button needed to hold down to change HUD position. https://docs.unity3d.com/ScriptReference/KeyCode.html"
+      );
+
+      modKeySecondary = Config.Bind("Settings",
+        nameof(modKeySecondary),
+        KeyCode.LeftControl,
+        "Button needed to hold down to change element dimensions https://docs.unity3d.com/ScriptReference/KeyCode.html"
+      );
+
       useCustomHealthBar = Config.Bind("CustomElements",
         nameof(useCustomHealthBar),
         true,
@@ -76,6 +111,12 @@ namespace BetterUI
         nameof(useCustomFoodBar),
         true,
         "Select if you want to use an custom Food Bar."
+      );
+
+      uiData = Config.Bind("xDataUI",
+        nameof(uiData),
+        "none",
+        "This is your customized UI info. (Edit to none, if having issues with UI)"
       );
 
       colorMode = Config.Bind("Settings", "colorMode", 0, "Change colorMode. Options: 0=Normal, 1=Protanopia ");
