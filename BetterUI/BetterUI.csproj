@@ -126,8 +126,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(GameDir)\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Valheim\unstripped_corlib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>$(GameDir)\valheim_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
@@ -343,6 +342,7 @@
     <Compile Include="GameClasses\SkillsDialog.cs" />
     <Compile Include="GameClasses\Smelter.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Patches\CustomElements.cs" />
     <Compile Include="Patches\Helpers.cs" />
     <Compile Include="Patches\HoverText.cs" />
     <Compile Include="Patches\Items.cs" />

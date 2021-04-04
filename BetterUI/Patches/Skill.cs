@@ -9,7 +9,7 @@ namespace BetterUI.Patches
   {
     public static void Show(Skills.Skill skill, float factor)
     {
-      Debug.Log($"skill level: {skill.m_level}");
+      //Debug.Log($"skill level: {skill.m_level}");
       if (skill.m_level >= 100) return;
 
       string notif_str = $"$skill_{ skill.m_info.m_skill.ToString().ToLower()}: {skill.GetLevelPercentage():P2}";

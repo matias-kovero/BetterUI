@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
+using BetterUI.Patches;
 
 namespace BetterUI.GameClasses
 {
@@ -15,13 +16,13 @@ namespace BetterUI.GameClasses
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Hud), "Awake")]
-    private static void InitializeXPBar(ref Hud __instance)
+    private static void Awake(ref Hud __instance)
     {
-      if (!Main.showCharacterXP.Value) return;
-      if (_bar == null)
-      {
-        _bar = Patches.XPBar.Awake(__instance);
-      }
+      if (Main.useCustomHealthBar.Value) CustomElements.HealthBar.Create();
+      if (Main.useCustomStaminaBar.Value) CustomElements.StaminaBar.Create();
+      if (Main.useCustomFoodBar.Value) CustomElements.FoodBar.Create();
+
+      if (Main.showCharacterXP.Value && _bar == null) _bar = XPBar.Awake(__instance);
     }
 
     [HarmonyPostfix]

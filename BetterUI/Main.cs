@@ -47,6 +47,9 @@ namespace BetterUI
     public static ConfigEntry<float> mapPinScaleSize;
     public static ConfigEntry<int> chestHasRoomStyle;
 
+    public static ConfigEntry<bool> useCustomHealthBar;
+    public static ConfigEntry<bool> useCustomStaminaBar;
+    public static ConfigEntry<bool> useCustomFoodBar;
     #endregion
 
 
@@ -59,6 +62,22 @@ namespace BetterUI
     }
     public void Awake()
     {
+      useCustomHealthBar = Config.Bind("CustomElements",
+        nameof(useCustomHealthBar),
+        true,
+        "Select if you want to use an custom HP Bar."
+      );
+      useCustomStaminaBar = Config.Bind("CustomElements",
+        nameof(useCustomStaminaBar),
+        true,
+        "Select if you want to use an custom Stamina Bar."
+      );
+      useCustomFoodBar = Config.Bind("CustomElements",
+        nameof(useCustomFoodBar),
+        true,
+        "Select if you want to use an custom Food Bar."
+      );
+
       colorMode = Config.Bind("Settings", "colorMode", 0, "Change colorMode. Options: 0=Normal, 1=Protanopia ");
 
       showCharacterXP = Config.Bind("UI", "showCharacterXP", true, "Show Character XP Bar.");
