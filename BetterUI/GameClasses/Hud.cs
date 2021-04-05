@@ -41,7 +41,7 @@ namespace BetterUI.GameClasses
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Hud), "Update")]
-    private static void UpdateXPBar(Hud __instance)
+    private static void Update(Hud __instance)
     {
       Player localPlayer = Player.m_localPlayer;
 
@@ -142,6 +142,33 @@ namespace BetterUI.GameClasses
         _bar.SetValue(_bar.m_value + 0.001f);
       }
       */
+    }
+
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(Hud), "UpdateHealth")]
+    private static void UpdateHealth(Player player)
+    {
+      if (Main.useCustomHealthBar.Value)
+      {
+        CustomElements.HealthBar.Update(player.GetMaxHealth(), player.GetHealth());
+      }
+    }
+
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(Hud), "UpdateStamina")]
+    private static void UpdateStamina(Player player)
+    {
+      if (Main.useCustomStaminaBar.Value)
+      {
+        CustomElements.StaminaBar.Update(player.GetMaxStamina(), player.GetStamina());
+      }
+    }
+
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(Hud), "UpdateFood")]
+    private static void UpdateFood(Player player)
+    {
+      if (Main.useCustomFoodBar.Value) CustomElements.FoodBar.Update(player);
     }
   }
 }
