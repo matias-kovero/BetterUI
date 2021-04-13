@@ -279,7 +279,6 @@ namespace BetterUI.Patches
               e.SetPosition(rt.anchoredPosition);
               // This elements depend on anchors, set these
               e.SetAnchors(rt.anchorMin, rt.anchorMax);
-              Helpers.DebugLine($"Setting {e.displayName} anchor: {rt.anchorMin}");
               //e.SetPosition(rt.anchorMax);
             }
             else

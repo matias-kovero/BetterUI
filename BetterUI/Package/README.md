@@ -9,10 +9,25 @@ You are able to edit and select what updates you want to use.
 Feel free to check my other mod as well [First-Person Mod](https://valheim.thunderstore.io/package/Masa/FirstPerson/)  
 
 [![](https://i.nyah.moe/Rb5tv.png)](https://zap-hosting.com/BetterUI)
+
+## Version 2.0.0 Information
+Config file revamped, you might need to remove old config as many values have changed.
+
+Small showcase on editing UI: https://imgur.com/a/w6bRkWs 
+
+Defaults:  
+`F7` to toggle editing mode  
+`Mouse Left` to drag elements  
+`Mouse Right` to toggle editing layer  
+`Left Ctrl` to allow scale editing  
+`Mouse Scroll` edit scale  
+  
+
 ## Table of Contents
 1. [Installation](#Installation-(manual))
 2. [Preview](#Preview)
-3. [Changelog](#Changelog)  
+3. [FAQ](#FAQ)
+4. [Changelog](#Changelog)  
 
 ## Installation (manual)
 
@@ -28,8 +43,34 @@ If you are installing this manually, do the following _(You will need Bepinex in
 ![Charlevels](https://i.nyah.moe/Rwk8I.png)
 ![EnemyHud](https://i.nyah.moe/RwNht.png)
 
+## FAQ
+__Can I hide the Yellow XP Bar at the bottom of the screen?__  
+Yes you can. Check config for _showCharacterXP_ and set it to __false__  
+
+__Why are the star icons not showing on enemies anymore?__  
+This mod defaults for an prefix: _Lv.1 Boar_  
+
+If you want the stars back, edit _enemyLvlStyle_ in the config.  
+0 = stars  
+1 = prefix  
+2 = stars & prefix  
+
+__How to turn off a specific hover text edit?__  
+You want to set the specific hover text option to 0.  
+Example: _timeLeftStyleFermenter = 0_
+
+__How to edit UI__  
+`F7` | Toggle editing mode  
+`Mouse Left` | Drag elements  
+`Mouse Right` | Toggle editing layer  
+`Left Ctrl` | Hold to allow scale editing  
+`Mouse Scroll` | Edit scale  
 
 ## Changelog
+#### 2.0.0 
+- Revamped config, old config causes issues (suggest deleting old and relaunch game)
+- Ability to edit UI elements positions
+- Added Custom elements (HP Bar, Stamina Bar, Food Bar)
 #### 1.6.4
 - Fixed fermenter hover text after game update 0.148.6
 - Skill notifications are ingnored on lvl 100 skills
