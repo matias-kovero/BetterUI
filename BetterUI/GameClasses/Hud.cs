@@ -32,6 +32,8 @@ namespace BetterUI.GameClasses
 
       if (useCustomHud)
       {
+        // Try to support QuickSlots
+        Compatibility.QuickSlotsHotkeyBar.Unanchor(__instance);
         // Load custom elements, before getting positions.
         if (Main.useCustomHealthBar.Value) CustomElements.HealthBar.Create();
         if (Main.useCustomStaminaBar.Value) CustomElements.StaminaBar.Create();

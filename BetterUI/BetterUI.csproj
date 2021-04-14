@@ -343,6 +343,7 @@
     <Compile Include="GameClasses\SkillsDialog.cs" />
     <Compile Include="GameClasses\Smelter.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Patches\Compatibility.cs" />
     <Compile Include="Patches\CustomElements.cs" />
     <Compile Include="Patches\CustomHud.cs" />
     <Compile Include="Patches\Helpers.cs" />

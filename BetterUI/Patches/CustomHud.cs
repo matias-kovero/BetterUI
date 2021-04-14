@@ -37,6 +37,7 @@ namespace BetterUI.Patches
       new Element(CustomElements.HealthBar.objectName, Groups.HudRoot, CustomElements.HealthBar.objectName, "HP Bar"),
       new Element(CustomElements.FoodBar.objectName, Groups.HudRoot, CustomElements.FoodBar.objectName, "Food Bar"),
       new Element(CustomElements.StaminaBar.objectName, Groups.HudRoot, CustomElements.StaminaBar.objectName, "Stamina Bar"),
+      new Element("QuickSlots", Groups.HudRoot, "QuickSlotsHotkeyBar", "QuickSlots")
       //new Element("QuickSlotsHotkeyBar", Groups.HudRoot, "healthpanel/Health/QuickSlotsHotkeyBar", "QuickSlotsHotkey"),
       //new Element("QuickSlotGrid", Groups.Inventory, "Player/QuickSlotGrid", "QuickSlots"),
       //new Element("EquipmentSlotGrid", Groups.Inventory, "Player/EquipmentSlotGrid", "EquipmentSlots"),
@@ -329,6 +330,7 @@ namespace BetterUI.Patches
       templateRT.sizeDelta = rt.sizeDelta;
       templateRT.anchoredPosition = rt.anchoredPosition;
       templateRT.position = rt.position;
+      templateRT.localEulerAngles = rt.localEulerAngles;
       t.resizeTextForBestFit = true;
     }
   }
