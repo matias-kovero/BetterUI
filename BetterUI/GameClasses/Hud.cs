@@ -22,13 +22,15 @@ namespace BetterUI.GameClasses
     private static bool isEditing = false;
     private static int activeLayer = 0;
 
+    private static readonly bool useCustomHud = Main.useCustomHud.Value;
+
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Hud), "Awake")]
     private static void Awake(ref Hud __instance)
     {
       if (Main.showCharacterXP.Value && _bar == null) _bar = XPBar.Awake(__instance);
 
-      if (Main.useCustomHud.Value)
+      if (useCustomHud)
       {
         // Load custom elements, before getting positions.
         if (Main.useCustomHealthBar.Value) CustomElements.HealthBar.Create();
@@ -53,7 +55,7 @@ namespace BetterUI.GameClasses
         _bar.SetValue(XP.GetLevelPercentage());
       }
 
-      if (!Main.useCustomHud.Value || localPlayer == null) return;
+      if (!useCustomHud || localPlayer == null) return;
 
       if (Input.GetKeyDown(Main.toggleEditMode.Value))
       {
@@ -75,7 +77,7 @@ namespace BetterUI.GameClasses
       float scrollPos = Input.GetAxis("Mouse ScrollWheel"); // Change scale
 
       // Could maybe rremove this
-      if (!Main.useCustomHud.Value)
+      if (!useCustomHud)
       {
         lastMousePos = mousePos;
         return;
@@ -149,7 +151,7 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(Hud), "UpdateHealth")]
     private static void UpdateHealth(Player player)
     {
-      if (Main.useCustomHealthBar.Value)
+      if (useCustomHud && Main.useCustomHealthBar.Value)
       {
         CustomElements.HealthBar.Update(player.GetMaxHealth(), player.GetHealth());
       }
@@ -159,7 +161,7 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(Hud), "UpdateStamina")]
     private static void UpdateStamina(Player player)
     {
-      if (Main.useCustomStaminaBar.Value)
+      if (useCustomHud && Main.useCustomStaminaBar.Value)
       {
         CustomElements.StaminaBar.Update(player.GetMaxStamina(), player.GetStamina());
       }
@@ -169,7 +171,7 @@ namespace BetterUI.GameClasses
     [HarmonyPatch(typeof(Hud), "UpdateFood")]
     private static void UpdateFood(Player player)
     {
-      if (Main.useCustomFoodBar.Value) CustomElements.FoodBar.Update(player);
+      if (useCustomHud && Main.useCustomFoodBar.Value) CustomElements.FoodBar.Update(player);
     }
   }
 }
