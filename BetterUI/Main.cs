@@ -63,6 +63,9 @@ namespace BetterUI
     public static ConfigEntry<int> enemyHudTextSize;
     public static ConfigEntry<float> maxShowDistance;
     public static ConfigEntry<int> skillUITextSize;
+    public static ConfigEntry<int> healthBarRotation;
+    public static ConfigEntry<int> staminaBarRotation;
+    public static ConfigEntry<int> foodBarRotation;
 
     // xUIData
     public static ConfigEntry<string> uiData;
@@ -222,6 +225,24 @@ namespace BetterUI
         nameof(skillUITextSize), 
         14, 
         "Select text size on skills UI"
+      );
+
+      healthBarRotation = Config.Bind("UI Edits",
+        nameof(healthBarRotation),
+        90,
+        "Rotate healthbar in degrees"
+      );
+
+      staminaBarRotation = Config.Bind("UI Edits",
+        nameof(staminaBarRotation),
+        90,
+        "Rotate staminabar in degrees"
+      );
+
+      foodBarRotation = Config.Bind("UI Edits",
+        nameof(foodBarRotation),
+        90,
+        "Rotate foodbar in degrees"
       );
 
       /* =======================

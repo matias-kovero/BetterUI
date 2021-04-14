@@ -26,7 +26,7 @@ namespace BetterUI.Patches
           healthBarRoot.gameObject.name = objectName;
 
           // Rotate this to 90
-          int rot = 90 - (90 / 90 % 4 * 90);
+          int rot = 90 - (Main.healthBarRotation.Value / 90 % 4 * 90);
           healthBarRoot.localEulerAngles = new Vector3(0, 0, rot);
 
           healthBarFast = healthBarRoot.Find("fast").GetComponent<GuiBar>();
@@ -87,7 +87,7 @@ namespace BetterUI.Patches
           staminaBarRoot = UnityEngine.Object.Instantiate(Hud.instance.m_healthBarRoot, Hud.instance.transform.Find("hudroot"));
           staminaBarRoot.gameObject.name = objectName;
 
-          int rot = 90 - (90 / 90 % 4 * 90);
+          int rot = 90 - (Main.staminaBarRotation.Value / 90 % 4 * 90);
           staminaBarRoot.localEulerAngles = new Vector3(0, 0, rot);
 
           staminaBarFast = staminaBarRoot.Find("fast").GetComponent<GuiBar>();
@@ -149,7 +149,7 @@ namespace BetterUI.Patches
         foodPanel = UnityEngine.Object.Instantiate(Hud.instance.m_healthPanel, Hud.instance.transform.Find("hudroot"));
         foodPanel.gameObject.name = objectName;
         foodPanel.gameObject.SetActive(true);
-        int rot = 90 - (90 / 90 % 4 * 90);
+        int rot = 90 - (Main.foodBarRotation.Value / 90 % 4 * 90);
         foodPanel.localEulerAngles = new Vector3(0, 0, rot);
 
         foodBarRoot = foodPanel.Find("Food").GetComponent<RectTransform>();
