@@ -67,6 +67,10 @@ __How to edit UI__
 `Mouse Scroll` | Edit scale  
 
 ## Changelog
+#### 2.0.1
+- Fixed issues with custom elements
+- Rotate custom elements via config
+- Custom UI support for QuickSlots
 #### 2.0.0 
 - Revamped config, old config causes issues (suggest deleting old and relaunch game)
 - Ability to edit UI elements positions
