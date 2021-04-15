@@ -18,7 +18,7 @@ namespace BetterUI.Patches
         Transform parentTransform = Hud.instance.transform.Find(parent);
         Transform quickSlots = parentTransform.Find(originalPath);
 
-        if (quickSlots && !isUsing)
+        if (quickSlots)
         {
           isUsing = true;
           quickSlots.parent = hud.m_rootObject.transform;
