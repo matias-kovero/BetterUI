@@ -67,6 +67,9 @@ __How to edit UI__
 `Mouse Scroll` | Edit scale  
 
 ## Changelog
+#### 2.0.2
+- Fixed issues with QuickSlots disappearing
+- Custom elements now use game default rotations.
 #### 2.0.1
 - Fixed issues with custom elements
 - Rotate custom elements via config
