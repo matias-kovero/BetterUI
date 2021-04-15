@@ -229,7 +229,7 @@ namespace BetterUI
 
       healthBarRotation = Config.Bind("UI Edits",
         nameof(healthBarRotation),
-        90,
+        0,
         "Rotate healthbar in degrees"
       );
 
@@ -241,7 +241,7 @@ namespace BetterUI
 
       foodBarRotation = Config.Bind("UI Edits",
         nameof(foodBarRotation),
-        90,
+        0,
         "Rotate foodbar in degrees"
       );
 

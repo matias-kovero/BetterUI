@@ -298,7 +298,11 @@ namespace BetterUI.Patches
       if (unusedElements.Count > 0)
       {
         Helpers.DebugLine($"Removing {unusedElements.Count} unused elements.");
-        foreach (HudElement e in unusedElements) elements.Remove(e);
+        foreach (HudElement e in unusedElements)
+        {
+          Helpers.DebugLine($"Remove {e.displayName} as not used.");
+          elements.Remove(e);
+        }
       }
     }
 
