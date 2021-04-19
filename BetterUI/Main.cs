@@ -69,6 +69,9 @@ namespace BetterUI
 
     // xUIData
     public static ConfigEntry<string> uiData;
+
+    // General
+    public static ConfigEntry<int> NexusID;
     #endregion
 
 
@@ -302,6 +305,16 @@ namespace BetterUI
         nameof(uiData),
         "none",
         "This is your customized UI info. (Edit to none, if having issues with UI)"
+      );
+
+      /* =======================
+       *         General
+       * =======================
+       */
+      NexusID = Config.Bind("General",
+        nameof(NexusID),
+        189,
+        "Nexus mod ID for updates"
       );
       /*
       showXPNotifications = Config.Bind("UI", "ShowXPNotifications", true, "Show when you gain xp from actions.");
