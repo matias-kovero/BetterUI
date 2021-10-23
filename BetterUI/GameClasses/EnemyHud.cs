@@ -25,37 +25,54 @@ namespace BetterUI.GameClasses
 
     [HarmonyPrefix]
     [HarmonyPatch(typeof(EnemyHud), "ShowHud")]
-    private static void PatchName(ref EnemyHud __instance, ref Character c)
+    private static void PatchName(ref EnemyHud __instance, ref Character c, bool isMount)
     {
       if (!Main.customEnemyHud.Value) return;
 
-      EnemyHud.HudData hudData;
-      if (__instance.m_huds.TryGetValue(c, out _)) return;
+        EnemyHud.HudData hudData;
+        if (__instance.m_huds.TryGetValue(c, out hudData))
+        {
+            return;
+        }
+        GameObject original;
+        if (isMount)
+        {
+            original = __instance.m_baseHudMount;
+        }
+        else if (c.IsPlayer())
+        {
+            original = __instance.m_baseHudPlayer;
+        }
+        else if (c.IsBoss())
+        {
+            original = __instance.m_baseHudBoss;
+        }
+        else
+        {
+            original = __instance.m_baseHud;
+        }
+        hudData = new EnemyHud.HudData();
+        hudData.m_character = c;
+        hudData.m_ai = c.GetComponent<BaseAI>();
+        hudData.m_gui = UnityEngine.Object.Instantiate<GameObject>(original, __instance.m_hudRoot.transform);
+        hudData.m_gui.SetActive(true);
+        hudData.m_healthFast = hudData.m_gui.transform.Find("Health/health_fast").GetComponent<GuiBar>();
+        hudData.m_healthSlow = hudData.m_gui.transform.Find("Health/health_slow").GetComponent<GuiBar>();
+        if (isMount)
+        {
+            hudData.m_stamina = hudData.m_gui.transform.Find("Stamina/stamina_fast").GetComponent<GuiBar>();
+            hudData.m_staminaText = hudData.m_gui.transform.Find("Stamina/StaminaText").GetComponent<Text>();
+            hudData.m_healthText = hudData.m_gui.transform.Find("Health/HealthText").GetComponent<Text>();
+        }
+        hudData.m_level2 = (hudData.m_gui.transform.Find("level_2") as RectTransform);
+        hudData.m_level3 = (hudData.m_gui.transform.Find("level_3") as RectTransform);
+        hudData.m_alerted = (hudData.m_gui.transform.Find("Alerted") as RectTransform);
+        hudData.m_aware = (hudData.m_gui.transform.Find("Aware") as RectTransform);
+        hudData.m_name = hudData.m_gui.transform.Find("Name").GetComponent<Text>();
+        hudData.m_name.text = Localization.instance.Localize(c.GetHoverName());
+        hudData.m_isMount = isMount;
 
-      GameObject original;
-      if (c.IsPlayer()) original = __instance.m_baseHudPlayer;
-      else if (c.IsBoss()) original = __instance.m_baseHudBoss;
-      else original = __instance.m_baseHud;
-
-      hudData = new EnemyHud.HudData
-      {
-        m_character = c,
-        m_ai = c.GetComponent<BaseAI>(),
-        m_gui = Object.Instantiate(original, __instance.m_hudRoot.transform)
-      };
-
-      hudData.m_gui.SetActive(true);
-      hudData.m_healthRoot = hudData.m_gui.transform.Find("Health").gameObject;
-      hudData.m_healthFast = hudData.m_healthRoot.transform.Find("health_fast").GetComponent<GuiBar>();
-      hudData.m_healthSlow = hudData.m_healthRoot.transform.Find("health_slow").GetComponent<GuiBar>();
-      hudData.m_level2 = (hudData.m_gui.transform.Find("level_2") as RectTransform);
-      hudData.m_level3 = (hudData.m_gui.transform.Find("level_3") as RectTransform);
-      hudData.m_alerted = (hudData.m_gui.transform.Find("Alerted") as RectTransform);
-      hudData.m_aware = (hudData.m_gui.transform.Find("Aware") as RectTransform);
-      hudData.m_name = hudData.m_gui.transform.Find("Name").GetComponent<Text>();
-      hudData.m_name.text = Localization.instance.Localize(c.GetHoverName());
-
-      if (c.IsPlayer())
+        if (c.IsPlayer())
       {
         // Currently no edits to player
       }
@@ -90,7 +107,7 @@ namespace BetterUI.GameClasses
         }
 
         // Resize and position everything
-        RectTransform hpRoot = (hudData.m_healthRoot.transform as RectTransform);
+        RectTransform hpRoot = (hudData.m_gui.transform.Find("Health") as RectTransform);
         Vector2 biggerBar = new Vector2(hpRoot.sizeDelta.x, hpRoot.sizeDelta.y * 3f);
         hpRoot.sizeDelta = biggerBar;
         hudData.m_alerted.gameObject.SetActive(false);
@@ -109,7 +126,7 @@ namespace BetterUI.GameClasses
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(EnemyHud), "UpdateHuds")]
-    private static void UpdateHP(ref EnemyHud __instance, Player player, float dt)
+    private static void UpdateHP(ref EnemyHud __instance, Player player, Sadle sadle, float dt)
     {
       if (!Main.customEnemyHud.Value) return;
 

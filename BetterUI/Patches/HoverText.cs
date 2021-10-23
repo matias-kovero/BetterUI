@@ -94,7 +94,7 @@ namespace BetterUI.Patches
 
         for (int i = 0; i < cookingStation.m_slots.Length; i++)
         {
-          cookingStation.GetSlot(i, out string text, out float num);
+          cookingStation.GetSlot(i, out string text, out float num, out CookingStation.Status status);
           if (text != "" && text != cookingStation.m_overCookedItem.name)
           {
             CookingStation.ItemConversion itemConversion = cookingStation.GetItemConversion(text);
